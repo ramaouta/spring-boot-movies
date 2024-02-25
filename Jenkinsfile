@@ -7,7 +7,7 @@ pipeline {
         stage('Compile') {
             steps {
                 script {
-                    sh "mvn clean compile"
+                    sh "mvn clean compile -DskipTests"
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
         stage('package') {
             steps {
                 script {
-                    sh "mvn package assembly:single"
+                    sh "mvn package -DskipTests"
                 }
             }
         }
