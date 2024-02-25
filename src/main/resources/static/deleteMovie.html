@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<script type="text/javascript">
+function send() {
+	var id=document.getElementById('id').value;
+	const url = 'http://localhost:8888/movies/'+id;
+	fetch(url,{ method: 'DELETE' })
+	.then(response=> {
+		document.getElementById("responsestatus").innerHTML = response.status;
+		console.log(response);
+		if (response.status==204) {
+		response.json().then(obj => {
+		document.getElementById("responseobjet").innerHTML =obj.id+" "+obj.name+" "+obj.genre+" "+obj.releaseDate ;
+	})
+}
+	else document.getElementById("responsetexte").innerHTML="Erreur";
+})
+.catch(error=>console.log("Erreur grave: "+error));
+}
+</script>
+<title>Page de suppression d'un film</title>
+</head>
+<body id='bod'>
+<p>
+<H2> Le film à supprimer:</H2>
+<form action=javascript:send() method="post">
+	<label for="id">Id du film :</label>
+	<input type="text" id="id" name="movie_name">
+	<br><br>
+	<button type="submit">Ex&eacute;cution</button>
+</form>
+</p>
+<p>
+<div id='responsestatus'></div>
+</p>
+<p>
+<div id='responsetexte'></div>
+</p>
+<p>
+<div id='responseobjet'></div>
+</p>
+</body>

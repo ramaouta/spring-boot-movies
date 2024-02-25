@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<script type="text/javascript">
+function send() {
+	var movie = {
+	name:document.getElementById("nom").value,
+	genre:document.getElementById("genre").value,
+	releaseDate:document.getElementById("date").value
+};
+const parametres = {
+	method:'POST',
+	body:JSON.stringify(movie),
+	headers:{
+	'Content-Type':'application/json'
+	}
+};
+const url = 'http://localhost:8888/movies';
+fetch(url,parametres)
+	.then(response => {
+	document.getElementById("responsestatus").innerHTML = response.status;
+	if(response.status==201) {
+	document.getElementById("responsetexte").innerHTML ="Film cr&eacute;&eacute;" ;
+	document.getElementById("responseobjet").innerHTML
+	=response.headers.get('Location');
+}
+else
+	document.getElementById("responsetexte").innerHTML = "Erreur, code de retour incorrect!";
+	})
+	.catch(error => alert("Erreur : " + error));
+}
+</script>
+<title>Page d'ajout d'un film</title>
+</head>
+<body id='bod'>
+<p>
+<H2> Le film à ajouter:</H2>
+<form action=javascript:send() method="post">
+	<label for="name">Titre :</label>
+	<input type="text" id="nom" name="movie_name">
+	<br><br>
+	<label for="genre">Genre :</label>
+	<input type="text" id="genre" name="movie_genre">
+	<br><br>
+	<label for="mail">Date :</label>
+	<input type="date" id="date" name="movie_date">
+	<br><br>
+	<button type="submit">Ex&eacute;cution</button>
+</form>
+</p>
+<p>
+<div id='responsestatus'></div>
+</p>
+<p>
+<div id='responsetexte'></div>
+</p>
+<p>
+<div id='responseobjet'></div>
+</p>
+</body>
