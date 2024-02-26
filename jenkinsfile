@@ -1,5 +1,5 @@
+// Exemple du Jenkinsfile, ce fichier ne sert pas ici car écrit avec une lettre minuscule
 pipeline {
-
     agent {
         label('slave1')
     }
