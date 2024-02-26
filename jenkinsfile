@@ -3,6 +3,8 @@ pipeline {
     agent {
         label('slave1')
     }
+// ou bien 
+// agent any
     stages {
         stage('Compile') {
             steps {
