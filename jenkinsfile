@@ -1,4 +1,4 @@
-// Exemple du Jenkinsfile, ce fichier ne sert pas ici car écrit avec une lettre minuscule jenkisfile et non pas Jenkinsfile
+// Ce fichier ne sert pas ici car écrit avec une lettre minuscule jenkisfile et non pas Jenkinsfile
 pipeline {
     agent {
         label('slave1')
