@@ -1,6 +1,6 @@
 package fr.greta95.springbootjunit;
-
-// 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
+// Faux jeton github
+// ghp_ARKjhsSbvhgmXZxyO5amNiTj5XCZKGGXI36u
 
 
 import org.springframework.boot.SpringApplication;
