@@ -1,9 +1,9 @@
 pipeline {
- agent any
+ //agent any
  
-/* agent {
-        label('slave1')
-    }*/
+agent {
+        label('controleur')
+    }
     stages {
         stage('Compile') {
             steps {
