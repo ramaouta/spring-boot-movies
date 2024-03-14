@@ -1,4 +1,5 @@
 // Ce fichier ne sert pas ici car écrit avec une lettre minuscule jenkisfile et non pas Jenkinsfile
+// 1er modif en direct sur github pour déclencher un build
 pipeline {
     agent {
         label('slave1')
